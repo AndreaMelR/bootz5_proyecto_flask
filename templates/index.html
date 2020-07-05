@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}myCRYPTO{% endblock %}
+{% block body %}
+    <header>
+
+    </header>
+    <h1>MOVEMENTS</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>From</th>
+            <th>Amount</th>
+            <th>To</th>
+            <th>Quantity</th>
+        </tr>
+        {% for movements, data in operaciones.items() %}
+        <tr>
+            <td>{{today.datetime}}</td>
+            <td>{{now.datetime}}</td>
+            <td>{{data.from_currency}}</td>
+            <td>{{data.from_quantity}}</td>
+            <td>{{data.to_currency}}</td>
+            <td>{{data.to_quantity}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

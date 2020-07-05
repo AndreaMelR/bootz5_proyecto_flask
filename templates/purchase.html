@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} COMPRA{% endblock %}
+{% block body %}
+<main class="container p-5">
+    <h1 class="display-6 text-center  title mt-6">COMPRA DE CRYPTOS</h1>
+        <div class="row">
+                <div class="container">
+                    <form action="/purchase" .class="u-full-width" method="get">
+                        <label for="symbol">From: </label> 
+                        <input type="text" id="from_currency" name={{from_currency}}><br>
+        <div class="row">
+                <div class="container">
+                    <form action="/purchase" .class="u-full-width" method="get">
+                        <label for="symbol">Amount: </label> 
+                        <input type="text" id="from_quantity" name={{from_quantity}}><br>
+                        <label for="symbol">To: </label> 
+                        <input type="text" id="to_currency" name={{to_currency}}><br>
+                        <label for="symbol">Quantity: </label> 
+                        <input type="text" id="to_quantity" name={{to_quantity}}><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock %}
+
+                        
+                                           
+            
+            
+
+                        
+
+                    
+                
+            
+        
