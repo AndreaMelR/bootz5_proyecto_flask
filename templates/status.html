@@ -3,12 +3,17 @@
 {% block body %}
 <main class="container p-5">
     <h1 class="display-6 text-center  title mt-6">ESTADO DE LA INVERSION</h1>
-        <form action="" method="GET"></form>
-        <label for="invertido">Invertido: </label>
-        <input type="text"> type="text" id="" name=""></input>
-        <label for="valor_actual">Valor Actual: </label>
-        <input type="text">
-        <label for="volver">Volver</label>
-        <input type="button" value="Volver">
-    
-{% endblock %}
+        <div class="form-group">
+        <form action="/status" method="GET">
+            <label for="invertido">Invertido: </label>
+            <input type="text" name="amount_invest" id="invertido">
+            <label for="valor_actual">Valor Actual: </label>
+            <input type="text">
+        </form>
+        <br>
+        <br>
+        <input type="button" value="VOLVER">
+        <form action="redirect"></form>
+        </div>
+</main>
+    {% endblock %}

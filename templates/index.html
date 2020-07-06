@@ -1,29 +1,45 @@
 {% extends 'base.html' %}
 {% block title %}myCRYPTO{% endblock %}
 {% block body %}
-    <header>
 
-    </header>
+<div class="Jumbotron text-center">
     <h1>MOVEMENTS</h1>
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>From</th>
-            <th>Amount</th>
-            <th>To</th>
-            <th>Quantity</th>
-        </tr>
-        {% for movements, data in operaciones.items() %}
-        <tr>
-            <td>{{today.datetime}}</td>
-            <td>{{now.datetime}}</td>
-            <td>{{data.from_currency}}</td>
-            <td>{{data.from_quantity}}</td>
-            <td>{{data.to_currency}}</td>
-            <td>{{data.to_quantity}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+</div>
+<div class="container"></div>
+        <form action="/" method="GET">
+            <h2>Operations Extract</h2>
+            <br>
+            <table class="table table-borded">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <input type="date" name="today" id="date">
+                        <th>Time</th>
+                        <input type="time" name="now" id="time">
+                        <th>Select coin</th>
+                        <form action="purchase.html" method="get" name="from_currency" id="symbol"></form>
+                        <th>Amount</th>
+                        <input type="number" name="from_quantity" id="Amount">
+                        <th scope="col">Exchange coin</th>
+                        <form action="purchase.html" method="get" name="to_currency" id="symbol"></form>
+                        <th scope="col">Quantity</th>
+                        <input type="number" name="to_quantity" id="Quantity">
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ datetime class="date" }}></datetime></td> 
+                        <td>{{ datetime class="time" }}></datetime></td>
+                        <td>{{ from_currency }}</td>
+                        <td>{{ from_quantity }}</td>
+                        <td>{{ to_currency }}</td>
+                        <td>{{ to_quantity}}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </form>
+</body>
+</html>
+   
 
 {% endblock %}

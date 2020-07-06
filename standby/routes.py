@@ -1,6 +1,7 @@
 from flask import Flask,render_template
 import sqlite3
 from requests.api import request
+from datetime import time
 
 app = Flask(__name__)
 
@@ -54,7 +55,7 @@ def invertido_en_euros():
    # este resultado nos lleva a través de la API a total balance
 
 
-@app.route("/inicio")
+@app.route("/")
 def datetime():
   today = datetime.date.fromtimestamp(time.time())
   now = datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None, * , fold=0)

@@ -1,27 +1,95 @@
 {% extends 'base.html' %}
 {% block title %} COMPRA{% endblock %}
 {% block body %}
-<main class="container p-5">
-    <h1 class="display-6 text-center  title mt-6">COMPRA DE CRYPTOS</h1>
+<div class="Jumbotron text-center">
+    <h1>BUY CRYPTOS</h1>
+</div>
+<main class="container">
+    <form action="/purchase" .class="u-full-width" method="GET">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="lista_monedas_1" >Choose your "from" currency</label>
+            </div>
+            <select class="custom-select" name="from_currency" id="symbol">
+                <option selected> Choose...</option>
+                <option value="EUR">EUR</option>
+                <option value="BTC">BTC</option>
+                <option value="ETH">ETH</option>
+                <option value="XRP">XRP</option>
+                <option value="LTC">LTC</option>
+                <option value="BCH">BCH</option>
+                <option value="BNB">BNB</option>
+                <option value="USDT">USDT</option>
+                <option value="EOS">EOS</option>
+                <option value="BSV">BSV</option>
+                <option value="XLM">XLM</option>
+                <option value="ADA">ADA</option>
+            </select>
+        </div>
+    </form>
+    <br>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="symbol" >Choose your "to" currency</label>
+        </div>
+        <select class="custom-select" name="to_currency" id="symbol">
+            <option selected> Choose...</option>
+            <option value="EUR">EUR</option>
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+            <option value="XRP">XRP</option>
+            <option value="LTC">LTC</option>
+            <option value="BCH">BCH</option>
+            <option value="BNB">BNB</option>
+            <option value="USDT">USDT</option>
+            <option value="EOS">EOS</option>
+            <option value="BSV">BSV</option>
+            <option value="XLM">XLM</option>
+            <option value="ADA">ADA</option>
+        </select>
+    </div>
+    <br>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="How much do you want to invest?" aria-label="from_quantity" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="convert">Calculate</button>
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Exchange result: </span>
+        </div>
+        <textarea class="form-control" aria-label="to_quantity"></textarea>
+    </div>
+    <br>
+    <br>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">P.U</span>
+        </div>
+        <textarea class="form-control" aria-label="precio_unitario"></textarea>
+    </div> 
+    <br>
+    <br>
+    <div class="container fixed-bottom ">
         <div class="row">
-                <div class="container">
-                    <form action="/purchase" .class="u-full-width" method="get">
-                        <label for="symbol">From: </label> 
-                        <input type="text" id="from_currency" name={{from_currency}}><br>
-        <div class="row">
-                <div class="container">
-                    <form action="/purchase" .class="u-full-width" method="get">
-                        <label for="symbol">Amount: </label> 
-                        <input type="text" id="from_quantity" name={{from_quantity}}><br>
-                        <label for="symbol">To: </label> 
-                        <input type="text" id="to_currency" name={{to_currency}}><br>
-                        <label for="symbol">Quantity: </label> 
-                        <input type="text" id="to_quantity" name={{to_quantity}}><br>
-                    </form>
-                </div>
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label for="confirm" name="validate" class="btn btn-secondary active">
+                    <input type="checkbox" checked autocomplete="off">Confirm
+                </label>
+                <label for="reset" name="clean" class="btn btn-secondary active">
+                    <input type="checkbox" checked autocomplete="off">Reset
+                </label>
             </div>
         </div>
+    </div>
+    </form>    
 </main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
 {% endblock %}
 
                         

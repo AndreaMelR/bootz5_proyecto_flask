@@ -7,43 +7,47 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-   conn = sqlite3.connect(app.config['DATA_BASE'])  #conecto
-   cur = conn.cursor() #creo cursor
+   conn = sqlite3.connect(app.config['data/movements.db'])  #conecto
+   cursor_operations = conn.cursor() #creo cursor tabla operations
    query = """ INSERT INTO operations('date', 'time', 'from_currency', 'from_quantity', 'to_currency', 'to_quantity')
                VALUES (?, ?, ?, ?, ?, ? );"""  #consulta
+
+   conn.commit()
+   conn.close()
    
    registros = []
-   dataRow = {}
+   d = {}
    for dataRow in registros:
-      datos = (dataRow[1], dataRow[2], dataRow[3], dataRow[4], dataRow[5], dataRow[6])
-      cur.execute(query, datos)
+      print(dataRow)
+   
+   
+
+      return render_template('index.html')
+      return dataRow
+
+@app.route("/purchase", methods =['GET','POST'])
+def purchase():
+   crypto = request.values['from_currency']
+
+   conn = sqlite3.connect(app.config['data/movements.db'],)  #conecto
+   cursor_operations = conn.cursor() #creo cursor tabla operations
+   query = """  INSERT INTO operations('date', 'time', 'from_currency', 'from_quantity', 'to_currency', 'to_quantity')
+               VALUES (?, ?, ?, ?, ?, ? ); """  #consulta
+   
+   #from_currency = linea[3]
+   #from_quantity = linea[4]
+   #to_currency = linea [5]
+   #to_quantity = linea[6]
+
+   
+   cursor_operations.execute(query)
+   
    
    conn.commit()
    conn.close()
 
-   return render_template('index.html',registros)
-
-#try:
-#   pass
-#except (ConnectionError, TimeoutError) as e:
- #  print (e) 
-
-
-@app.route("/purchase", methods =['GET','POST'])
-
-def new_purchase():
-   request.form
-   ##From = request.values['currency']
-   #currency = ('EUR','BTC')
-   #amount = ""
-
-   #for symbol in currency and amount != 0:
-    #  symbol = float(currency)
+   return render_template('purchase.html')  
    
-   #else:
-    #  pass
-
-   return render_template('purchase.html')
 
 @app.route("/status")
 def status():
